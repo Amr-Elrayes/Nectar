@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nacter/core/utils/colors.dart';
 import 'package:nacter/features/splash/splash_screen.dart';
 
 void main() {
@@ -10,9 +11,13 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return  MaterialApp(
       debugShowCheckedModeBanner: false,
       home: SplashScreen(),
+      theme: ThemeData(
+        scaffoldBackgroundColor: AppColors.bgColor,
+        appBarTheme: AppBarTheme(backgroundColor: AppColors.bgColor),
+      ),
     );
   }
 }
