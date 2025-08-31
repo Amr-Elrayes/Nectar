@@ -93,7 +93,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     txt: "Sign Up",
                     onPressed: () {
                       if (formKey.currentState!.validate()) {
-                        pushTo(context, LocationScreen());
+                        pushAndRemoveUntil(context, LocationScreen());
                       }
                     },
                   ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nacter/core/utils/cart_list.dart';
 import 'package:nacter/core/utils/text_styles.dart';
+import 'package:nacter/core/widgets/custom_buttom.dart';
 import 'package:nacter/features/cart/widgets/cart_item.dart';
 
 class CartScreen extends StatelessWidget {
@@ -15,12 +16,12 @@ class CartScreen extends StatelessWidget {
         title: Text("My Cart", style: TextStyles.titlestyle()),
         centerTitle: true,
       ),
-      body: Column(
-        children: [
-          SizedBox(height: 20),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+      body: Padding(
+        padding: const EdgeInsets.only(left: 20, right: 20, bottom: 20, top: 0),
+        child: Column(
+          children: [
+            SizedBox(height: 20),
+            Expanded(
               child: ListView.separated(
                 physics: ClampingScrollPhysics(),
                 itemBuilder: (context, index) {
@@ -32,8 +33,9 @@ class CartScreen extends StatelessWidget {
                 },
               ),
             ),
-          ),
-        ],
+            customButtom(txt: "Go to Checkout", onPressed: () {}),
+          ],
+        ),
       ),
     );
   }

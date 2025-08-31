@@ -1,5 +1,4 @@
-class AppImages 
-{
+class AppImages {
   static const String carrotSvg = 'assets/images/carrot.svg';
   static const String locationSvg = 'assets/images/location.svg';
   static const String logoSvg = 'assets/images/logo.svg';
@@ -15,4 +14,10 @@ class AppImages
   static const String meat = 'assets/images/meat.png';
   static const String oil = 'assets/images/oil.png';
   static const String eggpasket = 'assets/images/egg_pasket.png';
+  static const String sprite = 'assets/images/sprite.png';
+  static const String pepsi = 'assets/images/pepsi.png';
+  static const String dietCoke = 'assets/images/dietcoke.png';
+  static const String juice = 'assets/images/juice.png';
+  static const String coke = 'assets/images/coke.png';
+  static const String success = 'assets/images/success.png';
 }

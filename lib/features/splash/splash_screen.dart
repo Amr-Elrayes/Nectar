@@ -4,6 +4,7 @@ import 'package:nacter/core/constants/app_images.dart';
 import 'package:nacter/core/functions/navigation.dart';
 import 'package:nacter/core/utils/colors.dart';
 import 'package:nacter/features/auth/pages/login_screen.dart';
+import 'package:nacter/features/cart/cart_screen.dart';
 import 'package:nacter/features/main/main_app_screen.dart';
 import 'package:nacter/features/welcome/welcome_screen.dart';
 
@@ -19,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Future.delayed(Duration(seconds: 3), () {
-      pushReplacment(context, WelcomeScreen());
+      pushReplacment(context, MainAppScreen());
     });
   }
 

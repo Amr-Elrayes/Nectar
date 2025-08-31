@@ -8,7 +8,7 @@ import 'package:nacter/core/widgets/custom_Password_field.dart';
 import 'package:nacter/core/widgets/custom_buttom.dart';
 import 'package:nacter/core/widgets/custom_text_field.dart';
 import 'package:nacter/features/auth/pages/signup_screen.dart';
-import 'package:nacter/features/home/home_screen.dart';
+import 'package:nacter/features/main/main_app_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -104,7 +104,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     txt: "Login",
                     onPressed: () {
                       if (formKey.currentState!.validate()) {
-                        pushReplacment(context, HomeScreen());
+                        pushAndRemoveUntil(context, MainAppScreen());
                       }
                     },
                   ),

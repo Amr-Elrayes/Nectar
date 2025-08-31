@@ -1,13 +1,11 @@
-class ProductModel {
+class FavoriteItemModel {
   final int id;
   final String image;
   final String name;
-  final String description;
   String quantaty;
   double price;
 
-  ProductModel({
-    required this.description,
+  FavoriteItemModel({
     required this.id,
     required this.image,
     required this.name,
@@ -15,5 +13,3 @@ class ProductModel {
     required this.price,
   });
 }
-
-
