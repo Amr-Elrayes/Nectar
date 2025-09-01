@@ -4,9 +4,14 @@ import 'package:nacter/core/utils/text_styles.dart';
 import 'package:nacter/core/widgets/custom_buttom.dart';
 import 'package:nacter/features/cart/widgets/cart_item.dart';
 
-class CartScreen extends StatelessWidget {
+class CartScreen extends StatefulWidget {
   const CartScreen({super.key});
 
+  @override
+  State<CartScreen> createState() => _CartScreenState();
+}
+
+class _CartScreenState extends State<CartScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

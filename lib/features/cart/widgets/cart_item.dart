@@ -3,9 +3,23 @@ import 'package:nacter/core/utils/colors.dart';
 import 'package:nacter/core/utils/text_styles.dart';
 import 'package:nacter/features/cart/models/cart_item_model.dart';
 
-class cartItem extends StatelessWidget {
+class cartItem extends StatefulWidget {
   const cartItem({super.key, required this.model});
   final CartItemModel model;
+
+  @override
+  State<cartItem> createState() => _cartItemState();
+}
+
+class _cartItemState extends State<cartItem> {
+  late double price;
+  int copies = 1;
+  @override
+  void initState() {
+    super.initState();
+    price = widget.model.price;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -14,7 +28,7 @@ class cartItem extends StatelessWidget {
         SizedBox(height: 15),
         Row(
           children: [
-            Image.asset(model.image, width: 90, height: 90),
+            Image.asset(widget.model.image, width: 90, height: 90),
             SizedBox(width: 15),
             Expanded(
               child: Column(
@@ -23,12 +37,12 @@ class cartItem extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(model.name, style: TextStyles.titlestyle()),
+                      Text(widget.model.name, style: TextStyles.titlestyle()),
                       Icon(Icons.close),
                     ],
                   ),
                   SizedBox(height: 5),
-                  Text(model.quantaty, style: TextStyles.smallstyle()),
+                  Text(widget.model.quantaty, style: TextStyles.smallstyle()),
                   SizedBox(height: 5),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -36,7 +50,14 @@ class cartItem extends StatelessWidget {
                       Row(
                         children: [
                           GestureDetector(
-                            onTap: () {},
+                            onTap: () {
+                              setState(() {
+                                if (copies > 1) {
+                                  copies--;
+                                  widget.model.price -= price;
+                                }
+                              });
+                            },
                             child: Container(
                               padding: EdgeInsets.all(10),
                               decoration: BoxDecoration(
@@ -54,12 +75,17 @@ class cartItem extends StatelessWidget {
                           ),
                           SizedBox(width: 15),
                           Text(
-                            "${model.number}",
+                            copies.toString(),
                             style: TextStyles.bodystyle(),
                           ),
                           SizedBox(width: 15),
                           GestureDetector(
-                            onTap: () {},
+                            onTap: () {
+                              setState(() {
+                                copies++;
+                                widget.model.price += price;
+                              });
+                            },
                             child: Container(
                               padding: EdgeInsets.all(10),
                               decoration: BoxDecoration(
@@ -78,7 +104,7 @@ class cartItem extends StatelessWidget {
                         ],
                       ),
                       Text(
-                        "\$${model.price}",
+                        "\$${(widget.model.price).toStringAsFixed(2)}",
                         style: TextStyles.titlestyle(fontSize: 18),
                       ),
                     ],

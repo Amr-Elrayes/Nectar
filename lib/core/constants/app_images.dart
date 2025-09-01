@@ -20,4 +20,7 @@ class AppImages {
   static const String juice = 'assets/images/juice.png';
   static const String coke = 'assets/images/coke.png';
   static const String success = 'assets/images/success.png';
+  static const String amr = 'assets/images/Amrr.png';
+  static const String person = 'assets/images/person.png';
+  static const String penSvg = 'assets/images/pen.svg';
 }

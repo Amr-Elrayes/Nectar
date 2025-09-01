@@ -28,12 +28,13 @@ class TextStyles {
   static TextStyle smallstyle({
     Color color = AppColors.grayColor,
     double fontSize = 14,
+    FontWeight fontweight = FontWeight.w600,
   }) {
     return TextStyle(
       color: color,
       fontSize: fontSize,
       fontFamily: "Poppins",
-      fontWeight: FontWeight.w600,
+      fontWeight: fontweight,
     );
   }
 }
