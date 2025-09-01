@@ -4,9 +4,9 @@ import 'package:nacter/core/utils/text_styles.dart';
 import 'package:nacter/features/cart/models/cart_item_model.dart';
 
 class cartItem extends StatefulWidget {
-  const cartItem({super.key, required this.model});
+  const cartItem({super.key, required this.model, required this.onRemove});
   final CartItemModel model;
-
+final VoidCallback onRemove;
   @override
   State<cartItem> createState() => _cartItemState();
 }
@@ -14,6 +14,7 @@ class cartItem extends StatefulWidget {
 class _cartItemState extends State<cartItem> {
   late double price;
   int copies = 1;
+
   @override
   void initState() {
     super.initState();
@@ -38,7 +39,10 @@ class _cartItemState extends State<cartItem> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(widget.model.name, style: TextStyles.titlestyle()),
-                      Icon(Icons.close),
+                      IconButton(
+                        onPressed: widget.onRemove,
+                        icon: Icon(Icons.close),
+                      ),
                     ],
                   ),
                   SizedBox(height: 5),

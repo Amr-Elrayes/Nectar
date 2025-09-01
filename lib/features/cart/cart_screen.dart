@@ -30,7 +30,11 @@ class _CartScreenState extends State<CartScreen> {
               child: ListView.separated(
                 physics: ClampingScrollPhysics(),
                 itemBuilder: (context, index) {
-                  return cartItem(model: cartItems[index]);
+                  return cartItem(model: cartItems[index] , onRemove: () {
+                    setState(() {
+                      cartItems.removeAt(index);
+                    });
+                  },);
                 },
                 itemCount: cartItems.length,
                 separatorBuilder: (context, index) {
